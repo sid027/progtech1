@@ -1,0 +1,10 @@
+#include "square.hpp"
+
+#define SQUARE_VERSION_MAJOR "@Square_VERSION_MAJOR@"
+#define SQUARE_VERSION_MINOR "@Square_VERSION_MINOR@"
+#define SQUARE_VERSION SQUARE_VERSION_MAJOR"."SQUARE_VERSION_MINOR
+
+std::string square::version()
+{
+  return SQUARE_VERSION;
+}
