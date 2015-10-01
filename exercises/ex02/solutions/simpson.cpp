@@ -4,6 +4,7 @@
 
 #include <cstdlib>
 #include <cassert>
+#include <cmath>
 
 #include "simpson.hpp"
 
@@ -28,10 +29,10 @@ double integrate(const double a, const double b, const unsigned bins, double (*f
 
 double my_sin(double value)
 {
-	return sin(value);
+  return std::sin(value);
 }
 
 double my_fun(double value)
 {
-	return (1 + value);
+  return (1 + value);
 }
