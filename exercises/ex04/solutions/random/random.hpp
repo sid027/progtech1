@@ -11,7 +11,12 @@ public:
   result_type max() const;
     
 private:
-  typedef unsigned impl_type;
+// version 1:
+//  using impl_type = unsigned long;
+// version 2:
+//  using impl_type = unsigned long;
+// version 3:
+  using impl_type = unsigned;
   impl_type seed_;
     
   const impl_type a_;
