@@ -18,9 +18,12 @@ int main()
 		*iter++ = nums[ i ];
 
 	// Print numbers in reverse order
-	iter = Iterator<int>( &array[ array.size() - 1 ] , &array[0] , &array[0] + array.size() );
-	while( iter != array.begin() )
-		std::cout << *iter--;
+	iter = array.end();
+	do
+	  {
+	    std::cout << *(--iter);
+	  }
+	while( iter != array.begin() );
 	std::cout << *iter << std::endl;
 
 return 0;

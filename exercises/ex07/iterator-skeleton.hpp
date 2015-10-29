@@ -32,25 +32,27 @@ Bidirectional Iterator:
 */
 
 template<typename T>
-class Iterator
+class FwdIterator
 {
 public:
-	typedef T value_type;
-	typedef T& reference;
+  typedef T value_type;
+  typedef T& reference;
 
-	Iterator(){};
-	Iterator( value_type* const , value_type* const , value_type* const );
+  FwdIterator(){};
+  /* You may need an additional constructor */
 
-	reference operator* () const;
-	Iterator<value_type>& operator++ ();
+  reference operator* () const;
+  FwdIterator<value_type>& operator++ ();
 
-	bool operator== ( const Iterator<value_type>& ) const;
-	bool operator!= ( const Iterator<value_type>& ) const;
-	value_type* operator-> () const;
-	Iterator<value_type> operator++(int);
+  bool operator== ( const FwdIterator<value_type>& ) const;
+  bool operator!= ( const FwdIterator<value_type>& ) const;
+  value_type* operator-> () const;
+  FwdIterator<value_type> operator++(int);
+
+  /* add Bidirectional iterator support */
 
 private:
-	// ...
+  // ...
 };
 
 #endif 
