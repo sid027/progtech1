@@ -24,6 +24,7 @@ int main()
 	    std::cout << *(--iter);
 	  }
 	while( iter != array.begin() );
+	std::cout << std::endl;
 
 return 0;
 }
