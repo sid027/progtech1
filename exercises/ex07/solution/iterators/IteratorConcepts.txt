@@ -1,0 +1,43 @@
+Bidirectional Iterator Concepts
+
+The convention that 'a' and 'b' are of type Iterator<T> is used.
+
+1) Dereference ( *a ):
+	Pre: a is dereferenceable.
+	Post:
+	Return: Reference to type convertible to T.
+
+2) Preincrement (++a ):
+	Pre: a is dereferenceable.
+	Post:
+	Return: Iterator<T>&
+	
+3) EqualityComparable ( a == b ):
+	Pre: (a,b) are in the domain of ==.
+	Post:
+	Return: convertible to bool.
+
+4) Negation of EqualityComparison ( a != b ):
+	Pre: same as ==.
+	Post:
+	Return: same as ==.
+	
+5) Arrow ( -> ):
+	Pre: a is dereferenceable.
+	Post: 
+	Return:
+	
+6) Postincrement ( a++ ):
+	Pre: a is dereferenceable.
+	Post: a is dereferenceable or past-the-end.
+	Return: convertible to const Iterator<T>&.
+
+7) Predecrementable ( --a )
+	Pre: there exists 'y' such that, a == ++y.
+	Post: a is dereferenceable.
+	Return: Iterator<T>&.
+
+8) Postdecrementable ( a-- ):
+	Pre: same as --a.
+	Post: same as --a.
+	Return: convertible to const Iterator<T>&.

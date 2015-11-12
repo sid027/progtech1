@@ -1,0 +1,433 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     13091,        424]
+NotebookOptionsPosition[     11418,        368]
+NotebookOutlinePosition[     11874,        385]
+CellTagsIndexPosition[     11831,        382]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Random numbers", "Title"],
+
+Cell[CellGroupData[{
+
+Cell["A self-made generator", "Section"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"r0", "=", "1234"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"a", "=", "106"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"c", "=", "1283"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"m", "=", "6075"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6253915633655443`*^9, 3.625391563723721*^9}, {
+  3.625392037289982*^9, 3.625392075407165*^9}, {3.625392156799633*^9, 
+  3.6253921584830303`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"zufall", "[", "r_", "]"}], " ", "=", " ", 
+   RowBox[{"Mod", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"a", " ", "r"}], "+", "c"}], ",", "m"}], "]"}]}], 
+  ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"uniform", " ", "=", " ", 
+   RowBox[{
+    RowBox[{"NestList", "[", 
+     RowBox[{"zufall", ",", "r0", ",", 
+      RowBox[{
+       RowBox[{"100", "*", "m"}], "+", "1"}]}], "]"}], "/", 
+    RowBox[{"N", "[", "m", "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6253908628426857`*^9, 3.625390863258287*^9}, {
+   3.6253909042297153`*^9, 3.6253909227425756`*^9}, {3.625390963398796*^9, 
+   3.625390966236182*^9}, 3.625391425802824*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pairs", " ", "=", " ", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Take", "[", 
+      RowBox[{"uniform", ",", 
+       RowBox[{"{", 
+        RowBox[{"n", ",", 
+         RowBox[{"n", "+", "1"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", "m"}], "}"}]}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tripel", " ", "=", " ", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Take", "[", 
+      RowBox[{"uniform", ",", 
+       RowBox[{"{", 
+        RowBox[{"n", ",", 
+         RowBox[{"n", "+", "2"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", "m"}], "}"}]}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"unitvectors", " ", "=", " ", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"#", "/", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{"#", ".", "#"}], "]"}]}], ")"}], "&"}], ",", "tripel"}], 
+    "]"}]}], ";"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell["2D Points", "Subsection"],
+
+Cell[BoxData[
+ RowBox[{"Animate", "[", 
+  RowBox[{
+   RowBox[{"ListPlot", "[", 
+    RowBox[{
+     RowBox[{"pairs", "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"1", ";;", "n"}], ",", "All"}], "]"}], "]"}], ",", 
+     RowBox[{"AspectRatio", "->", "1"}], ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "m", ",", "1"}], "}"}], ",", 
+   RowBox[{"AnimationRunning", "\[Rule]", "False"}], ",", 
+   RowBox[{"AnimationRepetitions", "\[Rule]", "1"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.625389410093196*^9, 3.625389466638453*^9}, {
+  3.625389499155046*^9, 3.625389588639571*^9}, {3.625389662595868*^9, 
+  3.6253896788733892`*^9}, {3.6253898661752243`*^9, 3.6253899819762897`*^9}, {
+  3.625390026789377*^9, 3.6253900450037394`*^9}, {3.625390255527389*^9, 
+  3.6253902999299517`*^9}, {3.625390375766591*^9, 3.625390382421516*^9}, {
+  3.625390425588752*^9, 3.625390429003249*^9}, {3.62539070211548*^9, 
+  3.6253907401197433`*^9}, {3.625390787533832*^9, 3.625390809325014*^9}, {
+  3.655536312502839*^9, 3.655536327070829*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["3D Points", "Subsection"],
+
+Cell[BoxData[
+ RowBox[{"Animate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"Graphics3D", "[", 
+      RowBox[{"Map", "[", 
+       RowBox[{"Point", ",", 
+        RowBox[{"tripel", "[", 
+         RowBox[{"[", 
+          RowBox[{
+           RowBox[{"1", ";;", "n"}], ",", "All"}], "]"}], "]"}]}], "]"}], 
+      "]"}], ",", 
+     RowBox[{"ViewPoint", " ", "->", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "32.5"}], ",", "200.0", ",", 
+        RowBox[{"-", "52.5"}]}], "}"}]}], ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "1"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "1"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "1"}], "}"}]}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "m", ",", "1"}], "}"}], ",", 
+   RowBox[{"AnimationRunning", "\[Rule]", "False"}], ",", 
+   RowBox[{"AnimationRepetitions", "\[Rule]", "1"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.437909822724841*^9, 3.437909828898238*^9}, {
+  3.625392222093223*^9, 3.6253922407635098`*^9}, {3.655536275495986*^9, 
+  3.655536293335021*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.65553641409268*^9, 3.655536414161668*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["3D Spherical Surface", "Subsection"],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{"Map", "[", 
+     RowBox[{"Point", ",", "unitvectors"}], "]"}], "]"}], ",", 
+   RowBox[{"ViewPoint", "->", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "3", ",", "2"}], "}"}]}]}], "]"}]], "Input"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.6555359730073433`*^9, 3.655535973031577*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Autocorrelation", "Subsection",
+ CellChangeTimes->{{3.6253910513365583`*^9, 3.62539106963151*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"CorrelationFunction", "[", 
+    RowBox[{"uniform", ",", 
+     RowBox[{"{", 
+      RowBox[{"2", "*", "m"}], "}"}]}], "]"}], ",", 
+   RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.625390119584531*^9, 3.625390137863317*^9}, {
+   3.625390825365748*^9, 3.625390869976803*^9}, 3.625391289986618*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Builtin generator", "Section"],
+
+Cell[BoxData[
+ RowBox[{"SeedRandom", "[", 
+  RowBox[{"Method", "->", "\"\<MersenneTwister\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.625390643707261*^9, 3.625390679417842*^9}, 
+   3.62539228041787*^9, {3.625392316773539*^9, 3.6253923187236767`*^9}, {
+   3.6253923890276737`*^9, 3.62539238938463*^9}, {3.625392438636133*^9, 
+   3.625392544331285*^9}, {3.6254619495315657`*^9, 3.625461951622978*^9}, {
+   3.625462261578266*^9, 3.625462265834076*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"uniform2", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"RandomReal", "[", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{
+        RowBox[{"100", "*", "m"}], "+", "1"}]}], "}"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.625391115072351*^9, 3.6253911165187607`*^9}, 
+   3.625391422964099*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pairs2", " ", "=", " ", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Take", "[", 
+      RowBox[{"uniform2", ",", 
+       RowBox[{"{", 
+        RowBox[{"n", ",", 
+         RowBox[{"n", "+", "1"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", "m"}], "}"}]}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tripel2", " ", "=", " ", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Take", "[", 
+      RowBox[{"uniform2", ",", 
+       RowBox[{"{", 
+        RowBox[{"n", ",", 
+         RowBox[{"n", "+", "2"}]}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", ",", 
+       RowBox[{"m", "-", "2"}]}], "}"}]}], "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"unitvectors2", " ", "=", " ", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"#", "/", 
+        RowBox[{"Sqrt", "[", 
+         RowBox[{"#", ".", "#"}], "]"}]}], ")"}], "&"}], ",", "tripel2"}], 
+    "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"Animate", "[", 
+  RowBox[{
+   RowBox[{"ListPlot", "[", 
+    RowBox[{
+     RowBox[{"pairs2", "[", 
+      RowBox[{"[", 
+       RowBox[{
+        RowBox[{"1", ";;", "n"}], ",", "All"}], "]"}], "]"}], ",", 
+     RowBox[{"AspectRatio", "->", "1"}], ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "1"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "1"}], "}"}]}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", "m", ",", "1"}], "}"}], ",", 
+   RowBox[{"AnimationRunning", "\[Rule]", "False"}], ",", 
+   RowBox[{"AnimationRepetitions", "\[Rule]", "1"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.625391099477*^9, 3.625391101975761*^9}, {
+  3.655536369935557*^9, 3.6555363737054462`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Animate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", 
+    RowBox[{
+     RowBox[{"Graphics3D", "[", 
+      RowBox[{"Map", "[", 
+       RowBox[{"Point", ",", 
+        RowBox[{"tripel2", "[", 
+         RowBox[{"[", 
+          RowBox[{
+           RowBox[{"1", ";;", "n"}], ",", "All"}], "]"}], "]"}]}], "]"}], 
+      "]"}], ",", 
+     RowBox[{"ViewPoint", " ", "->", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "32.5"}], ",", "200.0", ",", 
+        RowBox[{"-", "52.5"}]}], "}"}]}], ",", " ", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "1"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "1"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "1"}], "}"}]}], "}"}]}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"n", ",", "1", ",", 
+     RowBox[{"m", "-", "2"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"AnimationRunning", "\[Rule]", "False"}], ",", 
+   RowBox[{"AnimationRepetitions", "\[Rule]", "1"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.437909840526722*^9, {3.625462005031083*^9, 3.6254620292919292`*^9}, {
+   3.6254620793219223`*^9, 3.625462098401713*^9}, {3.62546217336649*^9, 
+   3.625462183414048*^9}, 3.655536386766178*^9}],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{
+   RowBox[{"Graphics3D", "[", 
+    RowBox[{"Map", "[", 
+     RowBox[{"Point", ",", "unitvectors2"}], "]"}], "]"}], ",", 
+   RowBox[{"ViewPoint", "->", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "3", ",", "2"}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.6254619870773993`*^9, 3.6254620089878397`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"ListPlot", "[", 
+  RowBox[{
+   RowBox[{"CorrelationFunction", "[", 
+    RowBox[{"uniform2", ",", 
+     RowBox[{"{", 
+      RowBox[{"2", "*", "m"}], "}"}]}], "]"}], ",", 
+   RowBox[{"Filling", "\[Rule]", "Axis"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{3.62539113706277*^9, 3.625391275011104*^9}]
+}, Open  ]]
+}, Open  ]]
+},
+ScreenStyleEnvironment->"Presentation",
+WindowSize->{1135, 1156},
+WindowMargins->{{-10, Automatic}, {Automatic, -10}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (June 27, 2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 31, 0, 147, "Title"],
+Cell[CellGroupData[{
+Cell[623, 26, 40, 0, 94, "Section"],
+Cell[666, 28, 402, 11, 164, "Input"],
+Cell[1071, 41, 224, 8, 52, "Input"],
+Cell[1298, 51, 467, 11, 52, "Input"],
+Cell[1768, 64, 346, 11, 52, "Input"],
+Cell[2117, 77, 347, 11, 52, "Input"],
+Cell[2467, 90, 296, 10, 52, "Input"],
+Cell[CellGroupData[{
+Cell[2788, 104, 31, 0, 64, "Subsection"],
+Cell[2822, 106, 1281, 28, 127, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4140, 139, 31, 0, 64, "Subsection"],
+Cell[4174, 141, 1226, 33, 164, "Input"],
+Cell[5403, 176, 91, 1, 52, InheritFromParent]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5531, 182, 42, 0, 64, "Subsection"],
+Cell[5576, 184, 284, 8, 52, "Input"],
+Cell[5863, 194, 94, 1, 52, InheritFromParent]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5994, 200, 104, 1, 64, "Subsection"],
+Cell[6101, 203, 442, 10, 90, "Input"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6592, 219, 36, 0, 94, "Section"],
+Cell[6631, 221, 452, 7, 52, "Input"],
+Cell[7086, 230, 386, 12, 52, "Input"],
+Cell[7475, 244, 348, 11, 52, "Input"],
+Cell[7826, 257, 377, 12, 52, "Input"],
+Cell[8206, 271, 298, 10, 52, "Input"],
+Cell[8507, 283, 848, 22, 127, "Input"],
+Cell[9358, 307, 1303, 35, 164, "Input"],
+Cell[10664, 344, 355, 9, 52, "Input"],
+Cell[11022, 355, 368, 9, 90, "Input"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
