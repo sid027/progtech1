@@ -5,7 +5,7 @@ project(Square)
 # set version numbers
 
 set(Square_VERSION_MAJOR 1)
-set(Square_VERSION_MINOR 0)
+set(Square_VERSION_MINOR 1)
 
 # use version numbers in a header file
 # the file needs to be configured, that is created from an input file
