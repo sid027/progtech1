@@ -1,5 +1,5 @@
-/* Programming Techniques for Scientific Simulations, HS 2014
- * Exercise 10.2
+/* Programming Techniques for Scientific Simulations, HS 2015
+ * Exercise 8.2
  */
 
 #ifndef MODIFIED_NORMAL_DISTRIBUTION_HPP
