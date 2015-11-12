@@ -1,5 +1,5 @@
-/* Programming Techniques for Scientific Simulations, HS 2014
- * Exercise 10.1
+/* Programming Techniques for Scientific Simulations, HS 2015
+ * Exercise 8.3
  */
 
 #include <iostream>
