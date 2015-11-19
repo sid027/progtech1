@@ -48,7 +48,7 @@ int main()
   t_start = std::chrono::high_resolution_clock::now();
 
   for (unsigned i = 0; i < num_iter; ++i)
-    multiply_simple(A, B, C);
+    multiply_simple(A, B, C, n);
 
   t_end = std::chrono::high_resolution_clock::now();
 
