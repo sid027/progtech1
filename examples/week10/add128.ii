@@ -1,0 +1,18 @@
+# 1 "add128.cpp"
+# 1 "<built-in>" 1
+# 1 "<built-in>" 3
+# 170 "<built-in>" 3
+# 1 "<command line>" 1
+# 1 "<built-in>" 2
+# 1 "add128.cpp" 2
+struct int128 {
+  unsigned long long low;
+  long long high;
+};
+
+int128 operator+(int128 x, int128 y) {
+  int128 result;
+  result.low=x.low+y.low;
+  result.high=x.high+y.high;
+  return result;
+}

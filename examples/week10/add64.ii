@@ -1,0 +1,11 @@
+# 1 "add64.cpp"
+# 1 "<built-in>" 1
+# 1 "<built-in>" 3
+# 170 "<built-in>" 3
+# 1 "<command line>" 1
+# 1 "<built-in>" 2
+# 1 "add64.cpp" 2
+long long add64(long long x, long long y)
+{
+  return x+y;
+}
