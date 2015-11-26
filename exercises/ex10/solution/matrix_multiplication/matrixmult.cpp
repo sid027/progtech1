@@ -1,5 +1,5 @@
-/* Programming Techniques for Scientific Simulations, HS 2014
- * Exercise 11.2
+/* Programming Techniques for Scientific Simulations, HS 2015
+ * Exercise 10.1
  */
 
 #include <vector>

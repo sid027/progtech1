@@ -1,5 +1,5 @@
-/* Programming Techniques for Scientific Simulations, HS 2014
- * Week 11
+/* Programming Techniques for Scientific Simulations, HS 2015
+ * Week 10.1
  */
 
 #include <iostream>
