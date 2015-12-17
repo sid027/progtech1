@@ -16,14 +16,16 @@ class Fish(object):
         self.genome = Genome(genome)
         self.age = age
 
+    @property
     def is_pregnant(self):
         """
         Returns whether a fish is pregnant or not.
         """
-        if self.is_adult():
+        if self.is_adult:
             return random.random() < self.__class__.pregnancy_prob
         return False
     
+    @property
     def is_adult(self):
         """
         Returns whether the fish has reached the reproductive age.
@@ -45,7 +47,8 @@ class Fish(object):
         Makes the fish one year older.
         """
         self.age += 1
-    
+
+    @property
     def is_sick(self):
         """
         Returns whether the fish is sick due to too many bad genes.

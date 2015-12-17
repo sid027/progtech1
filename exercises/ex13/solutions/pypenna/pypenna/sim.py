@@ -59,14 +59,14 @@ class Simulation(object):
 
         self.population = [
             fish for fish in self.population
-            if not fish.is_sick()
+            if not fish.is_sick
             if not random.random() < self.N / self.N_max
             if not self.fishing.is_fished(fish)
         ]
 
         # Copy the population to create the "parents" list.
         for fish in copy.copy(self.population):
-            if fish.is_pregnant():
+            if fish.is_pregnant:
                 self.population.append(fish.make_child())
 
         self.time += 1
